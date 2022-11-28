@@ -15,19 +15,32 @@
     <h1 id="banner">TIC TAC TOE</h1>
 
 
+    <div class="round">Au tour de Joueur 1 </div>
+
     <div class="main-content">
+
+        <div>
+            <p>Joueur 1</p>
+            <p style="font-size:99px">X</p>
+        </div>
         <div class="game-board">
-            <div class="grid"></div>
-            <div class="grid"></div>
-            <div class="grid"></div>
-            <div class="grid"></div>
-            <div class="grid"></div>
-            <div class="grid"></div>
-            <div class="grid"></div>
-            <div class="grid"></div>
-            <div class="grid"></div>
+            <div data-x=0 data-y=0 class="grid"></div>
+            <div data-x=0 data-y=1 class="grid"></div>
+            <div data-x=0 data-y=2 class="grid"></div>
+            <div data-x=1 data-y=0 class="grid"></div>
+            <div data-x=1 data-y=1 class="grid"></div>
+            <div data-x=1 data-y=2 class="grid"></div>
+            <div data-x=2 data-y=0 class="grid"></div>
+            <div data-x=2 data-y=1 class="grid"></div>
+            <div data-x=2 data-y=2 class="grid"></div>
+        </div>
+        <div>
+            <p>Joueur 2</p>
+            <p style="font-size:99px">O</p>
         </div>
     </div>
+
+    <div style="display:flex; justify-content: center"><button>Recommencer</button></div>
 
     <div class="footer">
         Copyright © Jason, Tic Tac Toe 2022
