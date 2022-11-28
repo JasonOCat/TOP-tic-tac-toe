@@ -14,13 +14,35 @@
 
     <h1 id="banner">TIC TAC TOE</h1>
 
+    <br>
+    <div style="display:flex; justify-content: center; gap: 15px"><button class="btn-reset" style="visibility: hidden">Reset Game</button><button class="btn-start">Start game</button><button class="btn-change-mode" style="visibility: hidden">Change mode</button></div>
+    <br>
+    <div class="btn-mode" style="display:flex; justify-content: center; visibility: hidden; gap: 15px"><button class="vs-player">Vs player</button><button class="vs-computer">Vs Bot</button></div>
+    <br>
 
-    <div class="round">Au tour de Joueur 1 </div>
+    <div style="display:flex; justify-content: center;">
+        <form class="form-names" style="visibility: hidden">
+            <div style="display: flex; gap: 10px">
+                <label for="player1">Player 1 name :</label>
+                <input type="text" id="player1" name="player1" required>
+                <label for="player2">Player 1 name :</label>
+                <input type="text" id="player2" name="player2" required>
+                <input style="padding: 3px" class="submit-names" type="submit" value="OK">
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="round-message" style="display:flex; justify-content: center; align-items: center; gap: 15px;">
+        <div class="round"></div>
+        <div><button class="btn-play-again" style="display: none">Play Again</button></div>
+    </div> 
 
     <div class="main-content">
 
-        <div>
-            <p>Joueur 1</p>
+        <div style="text-align: center">
+            <p class="p-player1">Joueur 1</p>
             <p style="font-size:99px">X</p>
         </div>
         <div class="game-board">
@@ -34,14 +56,13 @@
             <div data-x=2 data-y=1 class="grid"></div>
             <div data-x=2 data-y=2 class="grid"></div>
         </div>
-        <div>
-            <p>Joueur 2</p>
+        <div style="text-align: center">
+            <p class="p-player2">Joueur 2</p>
             <p style="font-size:99px">O</p>
         </div>
     </div>
 
-    <div style="display:flex; justify-content: center"><button>Recommencer</button></div>
-
+    
     <div class="footer">
         Copyright © Jason, Tic Tac Toe 2022
     </div>

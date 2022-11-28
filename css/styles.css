@@ -71,10 +71,18 @@ body {
     font-size: 50px;
 }
 
-.round {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:30px;
-    padding-top: 50px;
+.round-message{
+ height: 25px;
+}
+
+
+button {
+    border-radius: 15px;
+    padding: 5px 15px;
+    background-color: orange;
+    border: 1px solid black;
+}
+
+button:hover {
+    filter: brightness(85%);;
 }
