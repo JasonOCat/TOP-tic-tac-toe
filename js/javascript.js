@@ -25,7 +25,7 @@ const gameBoard = (() => {
     const addMark = (x, y, mark) => {
         _grid[x][y] = mark;
         _addMarkDOM(x, y, mark);
-        console.table(_grid);
+        // console.table(_grid);
     }
 
     const _addMarkDOM = (x, y, mark) => {
@@ -119,6 +119,7 @@ const gameController = (() => {
         btnMode.style.visibility = "visible";
         btnReset.style.visibility = "hidden";
         btnChangeMode.style.visibility = "hidden";
+        btnPlayAgain.style.display = "none";
         roundDiv.textContent = "";
     }
 
@@ -127,9 +128,9 @@ const gameController = (() => {
         gameBoard.resetBoard();
         btnPlayAgain.style.display = "none";
         if (isVsPlayerMode) {
-            roundDiv.textContent = `${_currentPlayer.getName()}'s turn (${_currentPlayer.getMark()})`
+            roundDiv.innerHTML = `${_currentPlayer.getName()}'s turn : <span style='font-size: 50px'>${_currentPlayer.getMark()}</span>`;
         } else {
-            roundDiv.textContent = 'Your Turn';
+            roundDiv.innerHTML = `Your Turn : <span style="font-size: 50px">${_player1.getMark()}</span>`;
         }
         
         pauseGame = false;
@@ -150,6 +151,7 @@ const gameController = (() => {
         _currentPlayer = _player1;
         btnChangeMode.style.visibility ="visible"
         btnReset.style.visibility = "visible";
+        roundDiv.innerHTML = `Your Turn : <span style="font-size: 50px">${_player1.getMark()}</span>`;
         pauseGame = false;
     });
 
@@ -160,7 +162,7 @@ const gameController = (() => {
     formNames.addEventListener('submit', (e) => {
         _setNames(e);
         _currentPlayer = _player1;
-        roundDiv.textContent = `${_currentPlayer.getName()}'s turn (${_currentPlayer.getMark()})`
+        roundDiv.innerHTML = `${_currentPlayer.getName()}'s turn : <span style='font-size: 50px'>${_currentPlayer.getMark()}</span>`;
         e.target.style.visibility = "hidden";
         btnChangeMode.style.visibility ="visible"
         btnReset.style.visibility = "visible";
@@ -180,7 +182,7 @@ const gameController = (() => {
             return;
         }
 
-        if (_currentPlayer === _computer) { // computer plays again if the random grid is already filled
+        if (_currentPlayer === _computer) { // computer plays a round again if the random grid is already filled
             let rand1;
             let rand2;
             do {
@@ -210,10 +212,10 @@ const gameController = (() => {
 
         if (isVsPlayerMode) {
             _currentPlayer = _currentPlayer === _player1 ? _player2 : _player1;
-            roundDiv.textContent = `${_currentPlayer.getName()}'s turn (${_currentPlayer.getMark()})`;
+            roundDiv.innerHTML = `${_currentPlayer.getName()}'s turn : <span style='font-size: 50px'>${_currentPlayer.getMark()}</span>`;
         } else {
             _currentPlayer = _currentPlayer === _player1 ? _computer : _player1;
-            roundDiv.textContent = 'Your Turn';
+            roundDiv.innerHTML = `Your Turn : <span style="font-size: 50px">${_player1.getMark()}</span>`;
             let random1 = Math.floor(Math.random() * (3));
             let random2 = Math.floor(Math.random() * (3));
             if (_currentPlayer === _computer) {
@@ -234,6 +236,7 @@ const gameController = (() => {
         } else {
             roundDiv.textContent = 'You won 🎉'
         }
+        btnChangeMode.style.visibility = "visible";
         
     };
 
